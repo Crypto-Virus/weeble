@@ -1,10 +1,24 @@
 <script>
-  export let name;
+  import Header from "./Header.svelte";
+  import GameRow from "./GameRow.svelte";
+  import Keyboard from "./Keyboard.svelte";
 </script>
 
-<main>
-  <h1 class="">Hello {name}!</h1>
-  <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+<main class="flex flex-col justify-between gap-4 max-w-lg m-auto h-full">
+
+  <Header />
+
+  <div class="grid gap-[5px] m-auto">
+    <GameRow></GameRow>
+    <GameRow></GameRow>
+    <GameRow></GameRow>
+    <GameRow></GameRow>
+    <GameRow></GameRow>
+    <GameRow></GameRow>
+  </div>
+
+
+  <Keyboard />
 </main>
 
 <style lang="postcss" global>
