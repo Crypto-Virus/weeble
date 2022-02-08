@@ -1,12 +1,20 @@
 <script>
   import { onMount } from 'svelte';
   import Header from "./Header.svelte";
-  import GameRow from "./GameRow.svelte";
+  import GameGrid from "./GameGrid.svelte";
   import Keyboard from "./Keyboard.svelte";
 
   let word = 'naruto'
   let maxWordLength = 6
   let input = ''
+
+  let firstWord = ''
+  let secondWord = ''
+  let thirdWord = ''
+  let fourthWord = ''
+  let fifthWord = ''
+  let sixthWord = ''
+  let rowState = 0
 
 	onMount(async () => {
     getDailyWord()
@@ -72,15 +80,17 @@
 
   <div>daily word is: {word} </div>
   <div>the input is: {input}</div>
-  <div class="grid gap-[5px] m-auto">
-    <GameRow></GameRow>
-    <GameRow></GameRow>
-    <GameRow></GameRow>
-    <GameRow></GameRow>
-    <GameRow></GameRow>
-    <GameRow></GameRow>
-  </div>
-
+  <GameGrid
+    {word}
+    {input}
+    {firstWord}
+    {secondWord}
+    {thirdWord}
+    {fourthWord}
+    {fifthWord}
+    {sixthWord}
+    {maxWordLength}
+  />
 
   <Keyboard bind:input {maxWordLength} on:enterButtonClick={handleEnterButtonClick} />
 </main>
