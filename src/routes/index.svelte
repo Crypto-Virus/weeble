@@ -91,9 +91,3 @@
 
   <Keyboard bind:input on:enterButtonClick={handleEnterButtonClick} />
 </main>
-
-<style lang="postcss" global>
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-</style>
