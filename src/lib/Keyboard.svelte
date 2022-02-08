@@ -24,7 +24,6 @@
   import KeyboardButton from "./KeyboardButton.svelte";
 
   export let input
-  export let maxWordLength
 
   const firstRowLetters = "Q W E R T Y U I O P".split(" ")
   const secondRowLetters = "A S D F G H J K L".split(" ")
@@ -33,7 +32,7 @@
   const dispatch = createEventDispatcher()
 
   function handleLetterButtonClick(event) {
-    if ( input.length < maxWordLength) {
+    if ( input.length < 6) {
       const letter = event.detail.value
       input += letter
     }

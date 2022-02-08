@@ -5,7 +5,6 @@
   import Keyboard from "$lib/Keyboard.svelte";
 
   let word = 'naruto'
-  let maxWordLength = 6
   let input = ''
 
   let firstWord = ''
@@ -22,7 +21,6 @@
 
   async function getDailyWord() {
     word = 'NARUTO'
-    maxWordLength = word.length
   }
 
   function validateInput(word) {
@@ -89,10 +87,9 @@
     {fourthWord}
     {fifthWord}
     {sixthWord}
-    {maxWordLength}
   />
 
-  <Keyboard bind:input {maxWordLength} on:enterButtonClick={handleEnterButtonClick} />
+  <Keyboard bind:input on:enterButtonClick={handleEnterButtonClick} />
 </main>
 
 <style lang="postcss" global>

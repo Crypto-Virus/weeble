@@ -3,11 +3,10 @@
   export let id
   export let input
   export let answer
-  export let maxWordLength = 6
 </script>
 
-<div class={`width-${maxWordLength} grid gap-[5px]`}>
-  {#each Array(maxWordLength) as _, i}
+<div class={`width-6 grid gap-[5px]`}>
+  {#each Array(6) as _, i}
     <div class="w-[62px] h-[62px] border border-gray-400 flex justify-center items-center text-2xl font-bold">{input[i] ? input[i] : ''}</div>
   {/each}
 </div>
