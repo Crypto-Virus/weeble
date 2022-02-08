@@ -1,8 +1,8 @@
 <script>
   import { onMount } from 'svelte';
-  import Header from "./Header.svelte";
-  import GameGrid from "./GameGrid.svelte";
-  import Keyboard from "./Keyboard.svelte";
+  import Header from "$lib/Header.svelte";
+  import GameGrid from "$lib/GameGrid.svelte";
+  import Keyboard from "$lib/Keyboard.svelte";
 
   let word = 'naruto'
   let maxWordLength = 6
