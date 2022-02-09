@@ -16,7 +16,8 @@
   })
 
   async function getDailyWord() {
-    word = 'SAKURA'
+    word = names[Math.floor(Math.random() * names.length)];
+    console.log(`Selected character is: ${word}`)
   }
 
   function validateInputWord(word) {
