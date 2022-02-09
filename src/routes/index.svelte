@@ -3,7 +3,10 @@
   import Header from "$lib/Header.svelte";
   import GameGrid from "$lib/GameGrid.svelte";
   import Keyboard from "$lib/Keyboard.svelte";
-import { gameState } from '$lib/stores';
+  import { gameState } from '$lib/stores';
+  import names from '$lib/data/names.json'
+
+  const namesSet = new Set(names)
 
   let word = ''
   let input = ''
@@ -17,8 +20,11 @@ import { gameState } from '$lib/stores';
   }
 
   function validateInputWord(word) {
-    //todo: make server request
-    return true
+    if (namesSet.has(input)) {
+      return true
+    } else {
+      return false
+    }
   }
 
   function checkMatch() {
