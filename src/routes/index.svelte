@@ -5,6 +5,9 @@
   import Keyboard from "$lib/Keyboard.svelte";
   import { gameState } from '$lib/stores';
   import names from '$lib/data/names.json'
+  import { getNotificationsContext } from 'svelte-notifications';
+
+  const { addNotification } = getNotificationsContext();
 
   const namesSet = new Set(names)
 
@@ -74,12 +77,22 @@
 
   function handleEnterButtonClick() {
     if (input.length < 6) {
-      alert("Input word must be 6 characters long")
+      addNotification({
+        text: 'Input word must be 6 characters long',
+        position: 'top-center',
+        removeAfter: 4000,
+        type: 'danger'
+      })
       return
     }
 
     if (!validateInputWord()) {
-      alert("Not a valid word")
+      addNotification({
+        text: 'Not a valid word',
+        position: 'top-center',
+        removeAfter: 4000,
+        type: 'danger'
+      })
       return
     }
 

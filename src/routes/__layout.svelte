@@ -1,5 +1,9 @@
 <script>
   import "../app.css"
+  import Notifications from 'svelte-notifications';
+
 </script>
 
-<slot />
+<Notifications>
+  <slot />
+</Notifications>
