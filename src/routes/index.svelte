@@ -116,11 +116,14 @@
 
 </script>
 
-<main class="flex flex-col justify-between gap-4 max-w-lg m-auto h-full">
+<main class="flex flex-col max-w-lg mx-auto h-screen">
 
   <Header />
 
-  <GameGrid {input} />
+  <div class="flex flex-col gap-4 pt-8 pb-4 h-full box-border">
+    <GameGrid {input} />
 
-  <Keyboard bind:input on:enterButtonClick={handleEnterButtonClick} />
+    <Keyboard bind:input on:enterButtonClick={handleEnterButtonClick} />
+  </div>
+
 </main>
