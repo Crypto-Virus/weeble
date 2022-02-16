@@ -6,7 +6,6 @@
 
   $: {
     width = height
-    console.log(width, height)
   }
 
   export let input = ''
