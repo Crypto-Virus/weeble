@@ -4,14 +4,11 @@
   export let id
   export let input
 
-  let matchResult
-
   $: displayWord = updateDisplayWord(input, $gameState)
 
   function updateDisplayWord(input, gameState) {
     if (gameState.rowState === id) return input
     if (gameState.rowState > id) {
-      matchResult = gameState.results[id]
       return gameState.answers[id]
     }
     return ''
@@ -24,9 +21,9 @@
   {#each Array(6) as _, i}
     <div
       class="border border-gray-400 flex justify-center items-center text-2xl font-bold"
-      class:no-match={matchResult ? matchResult[i] === 0 : false}
-      class:partial-match={matchResult ? matchResult[i] === 2 : false}
-      class:exact-match={matchResult ? matchResult[i] === 1 : false}
+      class:no-match={$gameState.results[id] ? $gameState.results[id][i] === 0 : false}
+      class:partial-match={$gameState.results[id] ? $gameState.results[id][i] === 2 : false}
+      class:exact-match={$gameState.results[id] ? $gameState.results[id][i] === 1 : false}
     >
       {displayWord[i] ? displayWord[i] : ''}
     </div>

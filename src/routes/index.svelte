@@ -1,12 +1,16 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount, getContext } from 'svelte';
   import Header from "$lib/Header.svelte";
   import GameGrid from "$lib/GameGrid.svelte";
   import Keyboard from "$lib/Keyboard.svelte";
   import { gameState } from '$lib/stores';
   import names from '$lib/data/names.json'
   import { getNotificationsContext } from 'svelte-notifications';
+  import GameWon from '$lib/GameWon.svelte';
+  import GameOver from '$lib/GameOver.svelte';
 
+
+  const { open } = getContext('simple-modal');
   const { addNotification } = getNotificationsContext();
 
   const namesSet = new Set(names)
@@ -103,15 +107,29 @@
 
     if (input === word) {
       console.log('you won!')
-      alert("you won!")
+      open(GameWon, {_playAgain: playAgain})
     }
 
     if ($gameState.rowState === 6) {
-      alert("Game Over")
+      open(GameOver, {word: word, _playAgain: playAgain})
     }
 
     input = ''
 
+  }
+
+  function resetGameState() {
+    $gameState = {
+      rowState: 0,
+      answers: [],
+      results: [],
+      keyboardState: {},
+    }
+  }
+
+  function playAgain() {
+    resetGameState()
+    getDailyWord()
   }
 
 </script>
