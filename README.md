@@ -2,6 +2,7 @@
 
 Wordle but for 6 letter anime character names.
 
+You can try it here [weeble.xyz](https://weeble.xyz)
 
 ## Developing
 
